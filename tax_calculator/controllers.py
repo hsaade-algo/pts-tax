@@ -8,10 +8,10 @@ logging.basicConfig(level=logging.INFO)
 
 
 def _get_tax_brackets(
-        tax_year: int,
-        max_retries: int = 3,
-        backoff_factor: float = 1.5 # Exponential backoff multiplier
-    ) -> Dict[str, Any]:
+    tax_year: int,
+    max_retries: int = 3,
+    backoff_factor: float = 1.5  # Exponential backoff multiplier
+) -> Dict[str, Any]:
     """
     Fetches the tax brackets for a given tax year with error handling and
     retries.
@@ -45,7 +45,7 @@ def _get_tax_brackets(
 
             return data
 
-        except requests.exceptions.HTTPError as http_err:
+        except requests.exceptions.HTTPError:
             logging.error(
                 f"(#{attempt + 1}) Server error [{resp.status_code}]"
                 f" with details: {str(resp.json())}"
@@ -79,7 +79,7 @@ def generate_tax_data(income: float, tax_year: int) -> Dict[str, Any]:
     if "error" in resp:
         logging.error(f"Error fetching tax brackets: {resp['error']}")
         return resp
-    
+
     tax_brackets = resp.get("tax_brackets", [])
 
     # Calculate tax

@@ -3,8 +3,8 @@ from pydantic_core import PydanticCustomError
 
 
 class TaxData(BaseModel):
-    income: StrictFloat # handles all type validations
-    tax_year: StrictInt # handles all type validations
+    income: StrictFloat  # handles all type validations
+    tax_year: StrictInt  # handles all type validations
 
     @field_validator("income", )
     def validate_income(cls, value):

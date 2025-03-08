@@ -13,7 +13,7 @@ def validation_error(error):
     return jsonify({"error": formatted_errors}), 400
 
 
-from tax_calculator.routes import *
+from tax_calculator.routes import *  # noqa
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ def test_valid_tax_data():
 
 def test_invalid_income():
     """Tests invalid income input."""
-    with pytest.raises(ValidationError) as exc:
+    with pytest.raises(ValidationError):
         TaxData(income=None, tax_year=2022)
 
     with pytest.raises(ValidationError):
