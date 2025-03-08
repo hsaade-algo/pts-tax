@@ -30,7 +30,7 @@ def _get_tax_brackets(
         "TAX_API_URL",
         "http://localhost:5001/tax-calculator/"
     )
-    TAX_API_URL = f"{BASE_URL}/tax-year/{tax_year}"
+    TAX_API_URL = f"{BASE_URL}tax-year/{tax_year}"
 
     for attempt in range(max_retries):
         try:
