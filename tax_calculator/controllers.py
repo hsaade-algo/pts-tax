@@ -1,4 +1,5 @@
 from typing import Dict, Any
+import os
 import requests
 import logging
 import time
@@ -25,7 +26,10 @@ def _get_tax_brackets(
     Returns:
         dict: A dict containing tax bracket(s) or error message(s).
     """
-    BASE_URL = "http://localhost:5001/tax-calculator/"
+    BASE_URL = os.getenv(
+        "TAX_API_URL",
+        "http://localhost:5001/tax-calculator/"
+    )
     TAX_API_URL = f"{BASE_URL}/tax-year/{tax_year}"
 
     for attempt in range(max_retries):
