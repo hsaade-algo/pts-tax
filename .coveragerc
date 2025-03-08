@@ -1,0 +1,5 @@
+[run]
+omit =
+    tax_calculator/__init__.py
+    tax_calculator/tests/__init__.py
+

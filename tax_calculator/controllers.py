@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 
 def _get_tax_brackets(
         tax_year: int,
-        max_retries: int = 1,
+        max_retries: int = 3,
         backoff_factor: float = 1.5 # Exponential backoff multiplier
     ) -> Dict[str, Any]:
     """
