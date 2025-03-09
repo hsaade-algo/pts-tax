@@ -146,5 +146,5 @@ This opens a detailed coverage report in your browser.
 - **Docker & Docker Compose** - Containerization
 - **Pydantic** - Request validation
 - **requests-mock** - Mocking external API calls
-- **Pytest** - Automated testing
+- **Pytest & pytest-cov** - Automated testing with coverage
 - **Flake8** - Linting
