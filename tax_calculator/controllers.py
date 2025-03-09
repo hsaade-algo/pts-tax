@@ -73,11 +73,11 @@ def generate_tax_data(income: float, tax_year: int) -> Dict[str, Any]:
     Returns:
         dict: A dict containing tax data or an error message.
     """
-    resp = _get_tax_brackets(tax_year)
-
     # Handle minor income validation
     if not isinstance(income, (int, float)) or income < 0:
         return {"error": {"message": "Invalid income."}}
+
+    resp = _get_tax_brackets(tax_year)
 
     # Handle API errors
     if "error" in resp:
