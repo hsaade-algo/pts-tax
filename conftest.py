@@ -5,7 +5,6 @@ from app import app
 
 
 """
-Pytest fixture to create a test client for the Flask app.
 scope="module" ensures that the client is created once per module, instead of
 per test, and therefore speeds up test execution.
 """
@@ -25,7 +24,34 @@ def mock_tax_api_success():
     with requests_mock.Mocker() as mocker:
         mocker.get(
             "http://localhost:5001/tax-calculator/tax-year/2022",
-            json={"tax_brackets": [{"min": 0, "max": 50000, "rate": 0.1}]},
+            json={
+                "tax_brackets": [
+                    {
+                        "max": 50197,
+                        "min": 0,
+                        "rate": 0.15
+                    },
+                    {
+                        "max": 100392,
+                        "min": 50197,
+                        "rate": 0.205
+                    },
+                    {
+                        "max": 155625,
+                        "min": 100392,
+                        "rate": 0.26
+                    },
+                    {
+                        "max": 221708,
+                        "min": 155625,
+                        "rate": 0.29
+                    },
+                    {
+                        "min": 221708,
+                        "rate": 0.33
+                    }
+                ]
+            },
             status_code=200
         )
         yield mocker

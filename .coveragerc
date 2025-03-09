@@ -1,5 +1,7 @@
 [run]
 omit =
+    app.py
+    conftest.py
     tax_calculator/__init__.py
     tax_calculator/tests/__init__.py
-
+    tax_calculator/error_handlers.py
